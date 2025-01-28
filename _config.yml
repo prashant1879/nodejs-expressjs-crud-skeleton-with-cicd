@@ -1,0 +1,37 @@
+# Site settings
+title: "NodeJS ExpressJS boiler plate"
+description: "A NodeJS ExpressJS Boilerplate is a foundational template designed to help developers quickly set up and organize a web application using Node.js and the Express framework. This boilerplate comes pre-configured with essential features such as routing, middleware support, environment management, and basic file structure. It serves as a great starting point for building robust and scalable applications, allowing developers to focus on building the functionality of their app without having to worry about the initial setup. Whether you're creating APIs, websites, or full-stack applications, this boilerplate provides a clean and efficient structure for rapid development."
+url: "https://prashant-suthar-zealous.github.io"  # URL of your site
+baseurl: "https://github.com/prashant-suthar-zealous/nodejs-expressjs-boiler-plate"  # This is for sites in subdirectories. Leave empty for a root site.
+language: "en"  # The language of the site
+author: "Prashant Suthar"
+
+# Social media links
+social_links:
+  twitter: "https://twitter.com/prashant1879"
+  github: "https://github.com/prashant1879"
+  linkedin: "https://linkedin.com/in/prashantsuthar1"
+
+# Markdown and theme configuration
+markdown: kramdown  # This is the default Markdown processor
+theme: jekyll-theme-minimal  # Default theme. You can change it to any other theme or custom theme
+
+# Build settings
+permalink: "/:year/:month/:day/:slug/"  # URL structure for posts
+paginate: 10  # Number of posts per page for pagination
+
+# Plugins (optional)
+plugins:
+  - jekyll-seo-tag  # For SEO optimization
+  - jekyll-feed  # For RSS feed
+
+# Exclusions (files/folders to exclude from processing)
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+
+# Collections (optional)
+collections:
+  posts:
+    output: true  # Determines whether the collection will be included in the build

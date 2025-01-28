@@ -1,0 +1,31 @@
+stages:
+  - deploy
+
+deploy_main_production:
+  stage: deploy
+  image: node:20 # Use a Node.js 20 image for compatibility
+  before_script:
+    - apt-get update -y
+    - apt-get install -y sshpass curl
+    - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    - export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    - nvm install 20
+    - nvm use 20
+    - npm install -g pm2 # Ensure pm2 is globally installed
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan -H "${SERVER_IP}" >> ~/.ssh/known_hosts # Add server to known hosts
+  script:
+    - set -x # Enable command tracing for debugging
+    - sshpass -p "${SERVER_PASSWORD}" ssh "${SERVER_USERNAME}"@"${SERVER_IP}" '
+      export NVM_DIR="$HOME/.nvm" &&
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" &&
+      nvm use 20 &&
+      export PATH=$PATH:/root/.nvm/versions/node/v20.14.0/bin &&
+      cd /var/www/html/ &&
+      git pull origin main &&
+      npm install &&
+      pm2 delete bolier-plate || true &&
+      pm2 start ecosystem.config.js '
+  only:
+    - main # Run only on the main branch

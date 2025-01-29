@@ -41,7 +41,7 @@ module.exports = {
       script: './app.js',
       watch: false,
     },
-  ]
+  ],
 };
 ```
 
@@ -111,21 +111,25 @@ Replace `PROJECT-NAME` with your frontend project’s name and `PORT` with the p
 To manage your PM2 processes, you can use the following commands:
 
 - To check the status of your PM2 processes:
+
   ```bash
   pm2 status
   ```
 
 - To view the logs:
+
   ```bash
   pm2 logs
   ```
 
 - To stop all PM2 processes:
+
   ```bash
   pm2 stop all
   ```
 
 - To restart all PM2 processes:
+
   ```bash
   pm2 restart all
   ```

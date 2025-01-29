@@ -1,6 +1,3 @@
-
-
-
 ## Software Requirements
 
 - [Node](https://nodejs.org/en/download/)
@@ -91,7 +88,6 @@ sh setupNewProject.sh
         ├── categories.routes.js
         └── user.routes.js
 ```
-
 
 ## How to Setup boiler-plate
 

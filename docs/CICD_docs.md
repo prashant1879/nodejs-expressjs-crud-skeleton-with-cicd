@@ -1,4 +1,3 @@
-
 # 🚀 CI/CD Pipeline for Deployment
 
 This repository contains the configuration for a CI/CD pipeline that automates the deployment of a Node.js application to a production server. The pipeline is configured using GitLab CI/CD and is triggered on changes to the `main` branch.
